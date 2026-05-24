@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-900: #071428;
+  --navy-800: #0D1F41;
+  --navy-700: #162F60;
+  --navy-600: #1F4080;
+  --navy-500: #2E57A1;
+  --navy-400: #4D70B0;
+  --navy-300: #6E8BBF;
+  --navy-200: #9BAED4;
+  --navy-100: #C5D0E6;
+  --navy-50:  #E8EDF5;
+  --accent:   #E8A020;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background-color: var(--navy-900);
+  color: #E8EDF5;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy-300);
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy-800); }
+::-webkit-scrollbar-thumb { background: var(--navy-600); border-radius: 3px; }
