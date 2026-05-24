@@ -35,7 +35,7 @@ export default function WorldMap() {
         document.head.appendChild(s)
       })
 
-    async function render() {
+    async function render(container: HTMLDivElement) {
       if (!(window as any).d3) {
         await loadScript('https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js')
       }
@@ -89,7 +89,7 @@ export default function WorldMap() {
         .attr('stroke', 'rgba(255,255,255,0.12)')
         .attr('stroke-width', 0.5)
         .style('cursor', (d: any) => scoreById[String(d.id)] ? 'pointer' : 'default')
-        .on('mouseover', function (event: MouseEvent, d: any) {
+        .on('mouseover', function (this: SVGPathElement, event: MouseEvent, d: any) {
           const c = scoreById[String(d.id)]
           if (!c) return
           d3.select(this).attr('opacity', 0.75)
@@ -103,7 +103,7 @@ export default function WorldMap() {
             .style('left', `${event.clientX - rect.left + 12}px`)
             .style('top', `${event.clientY - rect.top - 40}px`)
         })
-        .on('mouseout', function () {
+        .on('mouseout', function (this: SVGPathElement) {
           d3.select(this).attr('opacity', 1)
           tooltip.style('opacity', '0')
         })
@@ -123,7 +123,7 @@ export default function WorldMap() {
       })
     }
 
-    render().catch(console.error)
+    render(container).catch(console.error)
   }, [])
 
   return (
